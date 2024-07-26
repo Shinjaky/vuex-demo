@@ -7,7 +7,13 @@ const mutations = {
     state.theme = str
   }
 }
-const actions = {}
+const actions = {
+  async asyncTheme (context, theme) {
+    setTimeout(() => {
+      context.commit('changeTheme', theme)
+    }, 1000)
+  }
+}
 const getters = {}
 
 export default {

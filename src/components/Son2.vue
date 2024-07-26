@@ -16,9 +16,10 @@
         <hr>
         <div>Name:{{ userInfo.name }}</div>
         <button @click="changeInfo({name:'Boluo',age:23})">Change Info</button>
-        <button @click="asyncChangeInfo({name:'Stan',age:24})">Change Info after is</button>
+        <button @click="asyncChangeInfo({name:'Stan',age:24})">Change Info after 1s</button>
         <div>Theme:{{ setting.theme }}</div>
         <button @click="changeTheme('Sakura')">Change Theme</button>
+        <button @click="asyncTheme('Leaves')">Change Theme after 1s</button>
 
         <hr>
         <div>Name_Upper:{{ upperCaseName }}</div>
@@ -44,7 +45,8 @@ export default {
     ...mapMutations('user', ['changeInfo']),
     ...mapMutations('setting', ['changeTheme']),
     ...mapActions(['setAsyncCount']),
-    ...mapActions('user', ['asyncChangeInfo'])
+    ...mapActions('user', ['asyncChangeInfo']),
+    ...mapActions('setting', ['asyncTheme'])
   }
 }
 </script>

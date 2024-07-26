@@ -18,10 +18,10 @@
         <hr>
         <div>Name:{{ $store.state.user.userInfo.name }}</div>
         <button @click="mod_changeInfo({name:'KisameLee',age:30})">Change Info</button>
-        <button @click="mod_asyncChangeInfo({name:'Stan',age:24})">Change Info after is</button>
+        <button @click="mod_asyncChangeInfo({name:'Stan',age:24})">Change Info after 1s</button>
         <div>Theme:{{ $store.state.setting.theme }}</div>
         <button @click="mod_changeTheme('Dark')">Change Theme</button>
-
+        <button @click="mod_asyncChangeTheme('RedWine')">Change Theme after 1s</button>
         <hr>
         <div>Name_Upper:{{ $store.getters['user/upperCaseName'] }}</div>
 
@@ -54,6 +54,9 @@ export default {
     },
     mod_asyncChangeInfo (info) {
       this.$store.dispatch('user/asyncChangeInfo', info)
+    },
+    mod_asyncChangeTheme (theme) {
+      this.$store.dispatch('setting/asyncTheme', theme)
     }
 
     // ...mapMutations(['operateCount', 'changeCount']),
